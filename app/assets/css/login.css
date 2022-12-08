@@ -1,0 +1,49 @@
+:root {
+    --green-dark: #038175;
+    --white: #fff;
+}
+
+.sign {
+    background-color: var(--green-dark); 
+    padding: 2rem; 
+    min-height: 100vh;
+}
+.sign .logo {
+    width: 200px; 
+    margin: auto;
+}
+
+.sign .title {
+    font-weight: bold;
+}
+
+.text_green_dark {
+    color: var(--green-dark);
+}
+
+.sign .description {
+    padding: 0 2rem;
+}
+
+.sign .text__color {
+    color: #bbb;
+}
+.sign .btn__submit {
+    padding: 0.6rem 0; 
+    border-radius: 0.8rem; 
+    font-weight: bold;
+    background-color: var(--green-dark);
+    color: var(--white);
+}
+
+.sign__container {
+    width: 650px;
+    margin: auto;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+}
