@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php 
-        include('../helper/current_user.php');
+        include('../../helper/current_user.php');
         if (current_user()) {
             echo 'Sign in successfully~~!!';
         }
@@ -16,5 +16,8 @@
             echo 'Please try again';
         }
     ?>
+    <form action="../../controllers/logout.php" action="GET">
+        <input type="submit">
+    </form>
 </body>
 </html>
