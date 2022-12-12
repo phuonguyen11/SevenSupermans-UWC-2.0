@@ -1,5 +1,5 @@
 # SevenSupermans-UWC-2.0
-Trong file SQL:
+Trong file SQL: \\
 -- bảng Users --
 Role 0 là Back Officer
 Role 1 là Janitor
