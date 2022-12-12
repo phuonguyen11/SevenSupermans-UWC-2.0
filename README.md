@@ -6,4 +6,4 @@ Role 1 là Janitor \
 Role 2 là Collector \
 -- bảng Vehicles --  \
 Status 0 là xe chưa đc phân công (xe trống) \
-Status 1 là xe đã được phân công \
+Status 1 là xe đã được phân công
