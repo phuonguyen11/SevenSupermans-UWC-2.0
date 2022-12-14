@@ -1,17 +1,17 @@
-function selectRole()
-{   
+function selectRole() {
     var x = document.getElementById("employee-filter-option").value;
     alert(x);
     $.ajax({
-        url: "../app/views/fetchemp.php",
+        url: "../../app/views/fetchemp.php",
         type: 'POST',
-        data: 
+        dataType: 'html',
+        data:
         {
             id: x
         },
-        success:function(data)
-        {
-            $("ans").html(data);
+        success: function (data) {
+            // $("ans").html(data);
+            console.log(data);
         }
     });
 }

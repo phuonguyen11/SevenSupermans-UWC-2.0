@@ -98,8 +98,8 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <h1 class="text-dark fw-bold" style="position: absolute; left: 35%">
-                        Trang chủ
+                    <h1 class="fw-bold title" style="position: absolute; left: 25%">
+                        Quản lý công việc
                     </h1>
 
                     <!-- Topbar Navbar -->

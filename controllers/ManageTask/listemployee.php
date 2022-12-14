@@ -136,7 +136,7 @@ if ($result->num_rows > 0) {
                     };
                     $resultcollectors .= '<tr>
                                     <td>' . $stt++ . '</td>
-                                    <td>' . '...' . '</td>
+                                    <td>' . $thu . '</td>
                                     <td>' . $row2["time"] . '</td>
                                     <td>' . 'Xe tải ' . $row2["type"] . '</td>
                                     <td>' . 'Nhóm MCPs số ' . $row2["gmcps_id"] . '</td>

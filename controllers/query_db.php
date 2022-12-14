@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1); // enable strict typing
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -46,31 +47,29 @@ function getRequest()
     // read json
     $rq = file_get_contents('php://input');
 
-    if (empty($rq))
-    {
+    if (empty($rq)) {
         // if empty, then return
         return null;
     }
 
     // assume that rq is a JSON
-    $rq = json_decode($rq,
-                      true, // return associative array
-                      3,    // should not have much more than 1 query, so not too deep
-                      JSON_INVALID_UTF8_SUBSTITUTE);
+    $rq = json_decode(
+        $rq,
+        true, // return associative array
+        3,    // should not have much more than 1 query, so not too deep
+        JSON_INVALID_UTF8_SUBSTITUTE
+    );
 
-    if (is_null($rq))
-    {
+    if (is_null($rq)) {
         // something went wrong parsing the JSON (invalid, too deep, ...)
         return null;
     }
-    if (!is_array($rq))
-    {
+    if (!is_array($rq)) {
         // $rq can be true or false (which is valid JSON)
         // but we want array, so dismiss
         return null;
     }
-    if (!array_key_exists("queryString", $rq))
-    {
+    if (!array_key_exists("queryString", $rq)) {
         // JSON can parse, but that does not mean that it have the queryString
         return null;
     }
@@ -95,8 +94,7 @@ function queryMySQL(QueryRequest $qr)
 
     // OK, try to query the result
     $queryResult = $conn->query($qr->queryString);
-    if ($conn->error)
-    {
+    if ($conn->error) {
         $result->errno = $mysqli->errno;
         $result->error = $mysqli->error;
         $conn->close();
@@ -106,18 +104,14 @@ function queryMySQL(QueryRequest $qr)
     // OK, extract the result
     // for non-returning queries, $queryResult will be a bool
     // if such then skip extract the result
-    if (!is_bool($queryResult))
-    {
-        if ($queryResult->num_rows > 0)
-        {
+    if (!is_bool($queryResult)) {
+        if ($queryResult->num_rows > 0) {
             $result->result = array();
             // output data of each row, pushing into $result->result
-            while($row = $queryResult->fetch_assoc())
-            {
+            while ($row = $queryResult->fetch_assoc()) {
                 array_push($result->result, $row);
             }
         }
-
     }
     // Close connection
     $conn->close();
@@ -131,13 +125,10 @@ function queryMySQL(QueryRequest $qr)
 
 $request = getRequest();
 $result = null;
-if (is_null($request))
-{
+if (is_null($request)) {
     // create a empty result
     $result = new QueryResult("-1", "invalid JSON request", "error parsing - no queryString", null);
-}
-else
-{
+} else {
     $result = queryMySQL($request);
 }
 
