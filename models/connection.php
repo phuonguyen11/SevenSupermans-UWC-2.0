@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = "bucsehcmut2002";
+    $password = "";
     $database = "cnpm";
 
     // Create connection
@@ -9,4 +9,3 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-?>
