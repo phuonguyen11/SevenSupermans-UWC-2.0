@@ -1,0 +1,20 @@
+#header-row{
+    background-color: #94DD8B;
+    font-weight: bolder;
+    padding: 1%;
+}
+.employlist{
+    max-width: 90%;
+    margin-left: 1%;
+}
+.row{
+    padding-bottom: 10px;
+    text-align: center;
+    
+}
+.row.employee-listing{
+    background-color: white;
+    padding: 2%;
+    margin-bottom: 5px;
+    box-shadow: 10px;
+}
