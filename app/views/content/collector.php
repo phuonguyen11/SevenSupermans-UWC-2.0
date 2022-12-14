@@ -50,11 +50,29 @@ echo '
       </div>
       <div class="modal-body">
         <form>
+        <div class="form-group row">
+            <label for="date" class="col-sm-4 col-form-label">Ngày:</label>
+            <div class="dropdown col-sm-4">
+              <button id="date" class="btn btn-outline-secondary dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
+                Ngày <span class="caret"></span>
+              </button>
+              <br />
+              <ul class="dropdown-menu" role="menu" aria-labelledby="date">
+              ';
+$date = date('Y-m-d'); //today date
+$weekOfdays = array();
+for ($i = 1; $i <= 14; $i++) {
+  echo '<li class="dropdown-item">' . date('l : Y-m-d', strtotime("+$i day", strtotime($date))) . '</li>';
+}
+echo '
+              </ul>
+            </div>
+          </div>
           <div class="form-group row">
-            <label for="time" class="col-sm-4 col-form-label">Thời gian:</label>
+            <label for="time" class="col-sm-4 col-form-label">Ca:</label>
             <div class="dropdown col-sm-4">
               <button id="time" class="btn btn-outline-secondary dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
-                Thời gian <span class="caret"></span>
+                Ca <span class="caret"></span>
               </button>
               <br />
               <ul class="dropdown-menu" role="menu" aria-labelledby="time">
@@ -111,7 +129,9 @@ $query_run = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($query_run) > 0) {
   foreach ($query_run as $row) {
-    echo '<li class="dropdown-item"> Xe ' . $row['id'].': '.$row['type'].' - status '.$row['status'] .'</li>';
+    if ($row['status'] == -1) {
+      echo '<li class="dropdown-item disabled"> Xe ' . $row['id'] . ': ' . $row['type'] . ' - status ' . $row['status'] . '</li>';
+    } else echo '<li class="dropdown-item"> Xe ' . $row['id'] . ': ' . $row['type'] . ' - status ' . $row['status'] . '</li>';
   }
 };
 echo '

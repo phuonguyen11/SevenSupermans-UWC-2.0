@@ -84,7 +84,6 @@ include('../../models/connection.php')
         function accept() {
             console.log(document.getElementById("time").innerText);
             console.log(document.getElementById("area").innerText);
-            console.log(document.getElementById("vehicle").innerText);
             document.location.href='emp.php';
         }
     </script>
