@@ -251,8 +251,8 @@
                         <button class="btn btn-success mb-3 btn-add">
                             Thêm +
                         </button>
-                        <button class="btn btn-success btn-add mb-3 hidescreen">
-                            <a href="./emp.php" style="color: white; text-decoration:none;">Thêm +</a>
+                        <button class="btn btn-success btn-add mb-3 hidescreen" style="background-color: #8e0505;">
+                            <a href="./managetask.php" style="color: white; text-decoration:none;">Quay lại</a>
                         </button>
                     </div>
                     <div class="row task">
