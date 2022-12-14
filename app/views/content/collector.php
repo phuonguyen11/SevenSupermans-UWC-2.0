@@ -28,8 +28,8 @@ if (mysqli_num_rows($query_run) > 0) {
       <td>' . $row["phone"] . '</td>
       <td>
         <!-- Button trigger modal -->
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          Task
+        <button class="btn btn-success" data-toggle="modal" data-target="#myModal">
+          Chọn
         </button>
       </td>
 
@@ -125,7 +125,7 @@ echo '
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-primary" onclick="accept()">
+        <button type="button" class="btn btn-success" onclick="accept()">
           Accept
         </button>
       </div>
