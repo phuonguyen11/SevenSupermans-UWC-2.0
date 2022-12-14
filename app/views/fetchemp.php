@@ -7,9 +7,10 @@ if ($k == $collect) {
 } else if ($k == "janitor") {
     $sql = "SELECT * from users where `role` = 1";
 } else if ($k = "all") {
-    $sql = "SELECT * from users where `role` = 0";
+    $sql = "SELECT * from users where `role` IN (1, 2)";
 };
 $res = mysqli_query($conn, $sql);
+
 while ($rows = mysqli_fetch_assoc($res)) {
 ?>
     <tr>

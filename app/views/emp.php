@@ -284,7 +284,7 @@ include('../../models/connection.php')
                                     <tbody id ="ans">
                                     <?php
 
-                                        $query = "SELECT * from users";
+                                        $query = "SELECT * from users where `role` IN (1, 2)";
                                         $query_run = mysqli_query($conn, $query);
 
                                         if (mysqli_num_rows($query_run) > 0) {
@@ -313,8 +313,8 @@ include('../../models/connection.php')
                                     </tbody>
                                 </table>
                             </div>
-                            <button class="btn btn-success" style="margin-right:20px;">Điều tiết công việc cho Collector</button>
-                            <button class="btn btn-success">Điều tiết công việc cho Janitor</button>
+                            <a class = "btn btn-success" style="margin-right:20px;" href="./collector.php">Điều tiết công việc cho Collector</a>
+                    <a class = "btn btn-success" href="./janitor.php">Điều tiết công việc cho Janitor</a>
 
                         </div>
                     </div>
