@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4deb2+deb11u1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 04:38 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Host: localhost:3306
+-- Generation Time: Dec 14, 2022 at 12:17 AM
+-- Server version: 10.5.15-MariaDB-0+deb11u1
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cnpm`
+-- Database: `soft_dev`
 --
 
 -- --------------------------------------------------------
@@ -216,13 +216,13 @@ CREATE TABLE `vehicles` (
 --
 
 INSERT INTO `vehicles` (`id`, `type`, `status`) VALUES
-(1, '3 Tấn', 0),
+(1, '3 Tấn', 1),
 (2, '5 Tấn', 1),
 (3, '5 Tấn', 0),
 (4, '5 Tấn', 1),
-(5, '10 Tấn', 1),
+(5, '10 Tấn', -1),
 (6, '3 Tấn', 0),
-(7, '5 Tấn', 0),
+(7, '5 Tấn', 1),
 (8, '10 Tấn', 0);
 
 -- --------------------------------------------------------
