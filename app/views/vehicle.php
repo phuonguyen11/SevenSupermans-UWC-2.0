@@ -72,7 +72,7 @@
 
                 <!-- Nav Item - Vehicles -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="vehicle.html">
+                    <a class="nav-link" href="vehicle.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Vehicles</span></a>
                 </li>
@@ -279,7 +279,7 @@
                                     <a class="nav-link active text-bg-success" data-bs-toggle="tab" href="#truck-tab">Truck</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link disabled" style="background-color=#D0CBCB"data-bs-toggle="tab" href="#trolley-tab">Trolley</a>
+                                    <a class="nav-link disabled" style="background-color:#D0CBCB"data-bs-toggle="tab" href="#trolley-tab">Trolley</a>
                                 </li>
                             </ul>
                         </div>
