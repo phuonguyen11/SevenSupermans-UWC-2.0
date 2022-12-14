@@ -13,7 +13,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 // change this for you local testing env
 $db_addr = "localhost";
 $db_user = "root";
-$db_password = "bucsehcmut2002";
+$db_password = "";
 $db_db = "cnpm";
 
 class QueryRequest
@@ -148,6 +148,3 @@ else
 // depth is not more than 3
 $result = json_encode($result, JSON_PRETTY_PRINT, 3);
 echo $result;
-
-?>
-

@@ -1,4 +1,4 @@
-<?php  
+<?php
 include('../../models/connection.php');
 
 echo '<div class="table-responsive">
@@ -51,6 +51,24 @@ echo '
       </div>
       <div class="modal-body">
         <form>
+        <div class="form-group row">
+            <label for="date" class="col-sm-4 col-form-label">Ngày:</label>
+            <div class="dropdown col-sm-4">
+              <button id="date" class="btn btn-outline-secondary dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
+                Ngày <span class="caret"></span>
+              </button>
+              <br />
+              <ul class="dropdown-menu" role="menu" aria-labelledby="date">
+              ';
+$date = date('Y-m-d'); //today date
+$weekOfdays = array();
+for ($i = 1; $i <= 14; $i++) {
+  echo '<li class="dropdown-item">' . date('l : Y-m-d', strtotime("+$i day", strtotime($date))) . '</li>';
+}
+echo '
+              </ul>
+            </div>
+          </div>
           <div class="form-group row">
             <label for="time" class="col-sm-4 col-form-label">Thời gian:</label>
             <div class="dropdown col-sm-4">
@@ -89,7 +107,7 @@ $query_run = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($query_run) > 0) {
   foreach ($query_run as $row) {
-    echo '<li class="dropdown-item">' . $row['name']. '</li>';
+    echo '<li class="dropdown-item">' . $row['name'] . '</li>';
   }
 };
 echo '
