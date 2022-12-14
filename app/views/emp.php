@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('../../models/connection.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,10 +21,13 @@
         <!-- Custom styles for this template-->
         <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
         <link href="../../css/home.css" rel="stylesheet">
-        <link href="../../css/vehicle.css" rel="stylesheet">
+        <link href="../../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+        <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+        <link href="../../css/employee.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
                                                                                              integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+    
     </head>
 
     <body>
@@ -61,8 +69,8 @@
                 <hr class="sidebar-divider">
 
                 <!-- Nav Item - Employees -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/">
+                <li class="nav-item active">
+                    <a class="nav-link" href="emp.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Employees</span></a>
                 </li>
@@ -71,8 +79,8 @@
                 <hr class="sidebar-divider d-none d-md-block">
 
                 <!-- Nav Item - Vehicles -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="vehicle.html">
+                <li class="nav-item">
+                    <a class="nav-link" href="vehicle.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Vehicles</span></a>
                 </li>
@@ -106,19 +114,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
 
-                        <!-- Topbar Search -->
-                        <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" data-dashlane-rid="3a185025e0576f01" data-form-type="">
-                            <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" data-dashlane-rid="c452bc135382be1b" data-form-type="">
-                            <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" data-dashlane-rid="1a622703d7490619" data-dashlane-label="true" data-form-type="">
-                            <i class="fas fa-search fa-sm"></i>
-                            </button>
-                            </div>
-                            </div>
-                            </form> -->
-
-                            <h1 class="text-dark fw-bold" style="position: absolute; left: 35%;">Phương tiện</h1>
+                            <h1 class="text-dark fw-bold" style="position: absolute; left: 22%;">DANH SÁCH NHÂN VIÊN</h1>
 
                             <!-- Topbar Navbar -->
                             <ul class="navbar-nav ml-auto">
@@ -273,91 +269,89 @@
                     <!-- /Topbar -->
                     <!-- Home Content -->
                     <div class="container-fluid">
-                        <div class="row mb-3">
-                            <ul class="nav nav-pill nav-justified vehicle-type-selector">
-                                <li class="nav-item">
-                                    <a class="nav-link active text-bg-success" data-bs-toggle="tab" href="#truck-tab">Truck</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link disabled" style="background-color=#D0CBCB"data-bs-toggle="tab" href="#trolley-tab">Trolley</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="row">
-                            <div class="tab-content">
-                                <div class="tab-pane container active" id="truck-tab">
-                                    <div class="row">
-                                        <!-- Search, filter and vehicle listing -->
-                                        <div class="col-xl-8 col-lg-7">
-                                            <!-- Search, filter -->
-                                            <div class="row mb-3">
-                                                <form id="vehicle-filter">
-                                                    <div class="row">
-                                                        <div class="col-9">
-                                                            <input type="text" class="form-control" id="vehicle-search-keyword" placeholder="Nhập từ khóa tìm kiếm">
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <select class="form-select text-bg-success" id="vehicle-filter-option">
-                                                                <option selected value="all">Tất cả</option>
-                                                                <option value="unplanned">Chưa lên lịch</option>
-                                                                <option value="maintanence">Bảo trì</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <!-- Vehicles listing -->
-                                            <div class="row vehicle-listing">
-                                                <div class="col">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Button and vehicle information -->
-                                        <div class="col-xl-4 col-lg-5 sticky-top">
-                                            <!-- Button -->
-                                            <div class="row mb-3">
-                                                <div class="col d-grid mx-auto">
-                                                    <button disabled type="button" class="btn vehicle-plan-button btn-secondary btn-remove-sched" data-toggle="modal" data-target="#confirmation">Bỏ lịch</button>
-                                                </div>
-                                                <div class="col d-grid mx-auto">
-                                                    <button disabled type="button" class="btn vehicle-plan-button btn-success btn-set-sched" data-toggle="modal" data-target="#confirmation">Lập lịch</button>
-                                                </div>
-                                            </div>
-                                            <!-- Vehicle information -->
-                                            <div class="row">
-                                                <div class="card vehicle-information d-none">
-                                                    <div class="card-body">
-                                                        <div class="text-description mb-3">
-                                                            <p class="card-text">ID:
-                                                                <span class="id">xxx</span>
-                                                            </p>
-                                                            <p class="card-text">Sức chứa:
-                                                                <span class="type">xxx</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="location-map">
-                                                            <img src="../../img/vehicle-map.png" style="width:100%">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane container fade" id="trolley-tab"></div>
+                        <div class= "row" style="display:flex;">
+                            <div class="col-3">
+                                <select class="form-select text-bg-success" id="employee-filter-option">
+                                    <option selected value="all">Tất cả</option>
+                                    <option value="collector">Collectors</option>
+                                    <option value="janitor">Janitors</option>
+                                </select>
                             </div>
                         </div>
 
+                        <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên Nhân Viên</th>
+                                            <th>Địa chỉ liên lạc</th>
+                                            <th>Số Điện Thoại</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        $query = "SELECT * from users";
+                                        $query_run = mysqli_query($conn, $query);
+                                        
+                                        if(mysqli_num_rows($query_run) > 0)
+                                        {
+                                            foreach($query_run as $row)
+                                            {
+                                                ?>
+                                            <tr>
+                                            <td><?php echo $row['id']; ?> </td>
+                                            <td><?php echo $row['name']; ?> </td>
+                                            <td><?php echo $row['address']; ?> </td>
+                                            <td><?php echo $row['phone']; ?> </td>
+
+
+                                        </tr>
+
+                                                <?php
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                            <tr>
+                                            <td>No Record Found </td>
+                                        </tr>
+                                                <?php
+                                        }
+
+                                        ?>
+                                        
+                        
+
+
+                                </tbody>
+                                </table>
+                                </div>
+                        </div>
+
+
+
+
+
                     </div>
+                <div class="row">
+                    <div class="col-3">
+                    <button class = "btn btn-success">Điều tiết công việc</button>
+                                    </div>
+                 </div>
+
+
                     <!-- /Home Content -->
-                </div>
                 <!-- /Main Content -->
 
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright © Your Website 2022</span>
+                            <span>Copyright @ UWC</span>
                         </div>
                     </div>
                 </footer>
@@ -366,33 +360,6 @@
             <!-- /Content -->
         </div>
 
-        <!-- The Modal -->
-        <div class="modal fade" id="confirmation">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row my-3">
-                                <p class="text-center" style="font-size:1.5rem">Bạn có chắc muốn lưu thay đổi này</p>
-                            </div>
-                            <div class="row">
-                                <div class="row mb-3">
-                                    <div class="col-4 d-grid mx-auto">
-                                        <button id="confirmation-button-yes" type="button" class="btn btn-secondary" data-dismiss="modal">Có</button>
-                                    </div>
-                                    <div class="col-4 d-grid mx-auto">
-                                        <button id="confirmation-button-no"type="button" class="btn btn-success" data-dismiss="modal">Hủy</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
         <!-- Bootstrap core JavaScript-->
         <script src="../../vendor/jquery/jquery.min.js"></script>
@@ -403,14 +370,19 @@
 
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
-
+        <script src ="../../js/emp.js"></script>
+        <script type="text/javascript" src="../../js/emp.js"></script>
         <!-- Page level plugins -->
         <script src="../../vendor/chart.js/Chart.min.js"></script>
+        <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
+        <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="../../vendor/datatables/jquery.dataTables.js"></script>
+
 
         <!-- Page level custom scripts -->
         <script src="../../js/demo/chart-area-demo.js"></script>
         <script src="../../js/demo/chart-pie-demo.js"></script>
-        <script src="../../js/vehicle.js"></script>
+        <script src="../../js/employee.js"></script>
     </body>
 
 </html>
