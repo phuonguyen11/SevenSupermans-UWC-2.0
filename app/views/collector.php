@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('../../models/connection.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,14 +21,14 @@
 
     <link href="../../css/home.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
 
     <div id="wrapper">
         <?php
-        include_once 'sidebar.php';
+        include_once 'content/sidebar.php';
         ?>
 
         <!-- Content -->
@@ -42,36 +47,34 @@
 
                     <!-- Topbar Navbar -->
                     <?php
-                    include_once 'topbar.php';
+                    include_once 'content/topbar.php';
                     ?>
 
                 </nav>
                 <!-- /Topbar -->
                 <!-- Home Content -->
                 <?php
-                include_once 'collector-main.php';
+                include_once 'content/collector.php';
                 ?>
                 <!-- End Home Content -->
             </div>
             <!-- /Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright © UWC 2.0</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- /Footer -->
+
         </div>
         <!-- /Content -->
 
 
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#myModal").on("show.bs.modal", (e) => {
+                var $button = $(e.relatedTarget);
+                $("#name_emp").text('Task - ' + $button.closest("tr").find("td:eq(1)").text());
+            });
+        });
 
-    <script>
-        $(".dropdown-menu li").click(function() {
+        jQuery(".dropdown-menu li").click(function() {
             $(this)
                 .parents(".dropdown")
                 .find(".btn")
@@ -83,6 +86,8 @@
             console.log(document.getElementById("time").innerText);
             console.log(document.getElementById("area").innerText);
             console.log(document.getElementById("vehicle").innerText);
+            document.location.href='emp.php';
+
         }
     </script>
     <!-- Bootstrap core JavaScript-->
