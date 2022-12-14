@@ -291,8 +291,9 @@ include('../../models/connection.php')
                                             <th>Số Điện Thoại</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id ="ans">
                                     <?php
+
                                         $query = "SELECT * from users";
                                         $query_run = mysqli_query($conn, $query);
                                         
@@ -359,6 +360,7 @@ include('../../models/connection.php')
         <!-- Core plugin JavaScript-->
         <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src = "../../js/emp.js"></script>
 
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
