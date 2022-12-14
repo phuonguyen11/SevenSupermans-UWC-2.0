@@ -28,7 +28,7 @@ include('../../models/connection.php')
 
     <div id="wrapper">
         <?php
-        include_once 'content/sidebar.php';
+        include_once '../../controllers/content/sidebar.php';
         ?>
 
         <!-- Content -->
@@ -47,14 +47,14 @@ include('../../models/connection.php')
 
                     <!-- Topbar Navbar -->
                     <?php
-                    include_once 'content/topbar.php';
+                    include_once '../../controllers/content/topbar.php';
                     ?>
 
                 </nav>
                 <!-- /Topbar -->
                 <!-- Home Content -->
                 <?php
-                include_once 'content/janitor.php';
+                include_once '../../controllers/content/janitor.php';
                 ?>
                 <!-- End Home Content -->
             </div>

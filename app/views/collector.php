@@ -31,7 +31,7 @@ include('../../models/connection.php')
 
     <div id="wrapper">
         <?php
-        include_once 'content/sidebar.php';
+        include_once '../../controllers/content/sidebar.php';
         ?>
 
         <!-- Content -->
@@ -50,14 +50,14 @@ include('../../models/connection.php')
 
                     <!-- Topbar Navbar -->
                     <?php
-                    include_once 'content/topbar.php';
+                    include_once '../../controllers/content/topbar.php';
                     ?>
 
                 </nav>
                 <!-- /Topbar -->
                 <!-- Home Content -->
                 <?php
-                include_once 'content/collector.php';
+                include_once '../../controllers/content/collector.php';
                 ?>
                 <!-- End Home Content -->
             </div>

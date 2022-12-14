@@ -279,7 +279,7 @@
                                     <a class="nav-link active text-bg-success" data-bs-toggle="tab" href="#truck-tab">Truck</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link disabled" style="background-color=#D0CBCB"data-bs-toggle="tab" href="#trolley-tab">Trolley</a>
+                                    <a class="nav-link disabled" style="background-color:#D0CBCB"data-bs-toggle="tab" href="#trolley-tab">Trolley</a>
                                 </li>
                             </ul>
                         </div>
