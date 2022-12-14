@@ -1,6 +1,5 @@
 <?php
 session_start();
-include('../../models/connection.php')
 ?>
 
 <!DOCTYPE html>

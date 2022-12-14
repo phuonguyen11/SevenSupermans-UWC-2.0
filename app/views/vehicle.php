@@ -72,7 +72,7 @@
 
                 <!-- Nav Item - Vehicles -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="vehicle.html">
+                    <a class="nav-link" href="vehicle.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Vehicles</span></a>
                 </li>
