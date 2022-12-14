@@ -10,7 +10,7 @@ include('../../models/connection.php')
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Danh Sách Nhân Viên</title>
 
         <!-- Custom fonts for this template-->
         <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -269,9 +269,9 @@ include('../../models/connection.php')
                     <!-- /Topbar -->
                     <!-- Home Content -->
                     <div class="container-fluid">
-                        <div class= "row" style="display:flex;">
-                            <div class="col-3">
-                                <select class="form-select text-bg-success" id="employee-filter-option">
+                        <div class= "row">
+                            <div class="col-2">
+                                <select class="form-select text-bg-success" id="employee-filter-option" onchange="selectRole()">
                                     <option selected value="all">Tất cả</option>
                                     <option value="collector">Collectors</option>
                                     <option value="janitor">Janitors</option>
@@ -323,24 +323,14 @@ include('../../models/connection.php')
                                         }
 
                                         ?>
-                                        
-                        
-
-
                                 </tbody>
                                 </table>
                                 </div>
+                    <button class = "btn btn-success" style="margin-right:20px;">Điều tiết công việc cho Collector</button>
+                    <button class = "btn btn-success">Điều tiết công việc cho Janitor</button>
+
                         </div>
-
-
-
-
-
                     </div>
-                <div class="row">
-                    <div class="col-3">
-                    <button class = "btn btn-success">Điều tiết công việc</button>
-                                    </div>
                  </div>
 
 
@@ -351,7 +341,7 @@ include('../../models/connection.php')
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright @ UWC</span>
+                            <span>Copyright @ UWC 2.0</span>
                         </div>
                     </div>
                 </footer>
@@ -362,16 +352,17 @@ include('../../models/connection.php')
 
 
         <!-- Bootstrap core JavaScript-->
+
         <script src="../../vendor/jquery/jquery.min.js"></script>
         <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
         <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
-        <script src ="../../js/emp.js"></script>
-        <script type="text/javascript" src="../../js/emp.js"></script>
+
         <!-- Page level plugins -->
         <script src="../../vendor/chart.js/Chart.min.js"></script>
         <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
@@ -382,7 +373,6 @@ include('../../models/connection.php')
         <!-- Page level custom scripts -->
         <script src="../../js/demo/chart-area-demo.js"></script>
         <script src="../../js/demo/chart-pie-demo.js"></script>
-        <script src="../../js/employee.js"></script>
     </body>
 
 </html>

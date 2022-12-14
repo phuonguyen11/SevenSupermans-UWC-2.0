@@ -62,7 +62,7 @@
 
                 <!-- Nav Item - Employees -->
                 <li class="nav-item">
-                    <a class="nav-link" href="emp.html">
+                    <a class="nav-link" href="emp.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Employees</span></a>
                 </li>
