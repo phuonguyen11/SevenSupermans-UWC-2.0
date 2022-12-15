@@ -13,9 +13,9 @@ Role 0 là Back Officer \
 Role 1 là Janitor \
 Role 2 là Collector \
 -- bảng Vehicles --  \
-Status -1 là xe cần phải được bảo trì (không thể hoạt động được) \ 
-Status 0 là xe chưa đc phân công (xe trống) \
-Status 1 là xe đã được phân công
+Status -1 là xe cần phải được bảo trì (không thể hoạt động được)  \
+Status 0 là xe chưa đc phân công (xe trống)  \
+Status 1 là xe đã được phân công 
 # Note
 Nhánh chính được đặt tên là Nguyen.
 
