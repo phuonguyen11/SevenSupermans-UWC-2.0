@@ -30,7 +30,7 @@
           <input type="password" class="form-control" placeholder="Password" name="password">
         </div>
         <!-- <button type="submit" class="btn btn-primary w-100 mt-2 mb-3 btn__submit">Log In</button> -->
-        <input type="submit" class="btn btn-primary w-100 mt-2 mb-3 btn__submit"  >
+        <input type="submit" href ="index.html" class="btn btn-primary w-100 mt-2 mb-3 btn__submit"  >
         <div class="text-center pt-1 d-flex justify-content-center">
           <div class="text__color">
             Don't have an account?

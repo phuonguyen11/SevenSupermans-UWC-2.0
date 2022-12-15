@@ -1,0 +1,36 @@
+#wrapper #content-wrapper {
+    overflow: unset;
+}
+
+.vehicle-type-selector a {
+    font-size: 1.2rem !important;
+}
+
+.vehicle-listing .selected {
+    background-color: #FFF4E1;
+}
+
+.vehicle-listing-element .vehicle-icon .truck-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.vehicle-listing-element .vehicle-state-icon .checkmark-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.vehicle-listing-element .vehicle-state-icon .warning-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.vehicle-listing-element .vehicle-state-icon .dangerous-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.vehicle-plan-button {
+    height: 8rem;
+    font-size: 1.2rem !important;
+}
