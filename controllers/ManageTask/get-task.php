@@ -4,6 +4,7 @@ function gettask()
 {
     include("../../models/connection.php");
     $sql = "SELECT * FROM `week`";
+    $role = $_COOKIE["user_role"];
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // Load dữ liệu lên website
@@ -23,8 +24,11 @@ function gettask()
                                             </svg>
                                             <div class="dropdown-content" id="' . $row["week_id"] . 'WK">
                                                 <div class="actionview" id="' . $row["week_id"] . 'ACTV">Xem</div>
-                                                <div class="actiondel" id="' . $row["week_id"] . 'ACTD">Xóa</div>
-                                            </div>
+                                                ';
+            if ($role == '0') {
+                echo '<div class="actiondel" id="' . $row["week_id"] . 'ACTD">Xóa</div>';
+            };
+            echo '</div>
                                         </div>
 
                                     </div>

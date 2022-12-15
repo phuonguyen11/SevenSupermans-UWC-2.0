@@ -35,7 +35,7 @@ include('../../models/connection.php')
         <ul class="navbar-nav sidebar sidebar-dark accordion bg-mvc" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center bg-brand" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center bg-brand" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fa fa-leaf"></i>
                 </div>
@@ -47,7 +47,7 @@ include('../../models/connection.php')
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -226,7 +226,7 @@ include('../../models/connection.php')
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Tên người dùng</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_COOKIE["user_name"]; ?></span>
                                 <img class="img-profile rounded-circle" src="../../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -281,8 +281,8 @@ include('../../models/connection.php')
                                             <th>Số Điện Thoại</th>
                                         </tr>
                                     </thead>
-                                    <tbody id ="ans">
-                                    <?php
+                                    <tbody id="ans">
+                                        <?php
 
                                         $query = "SELECT * from users where `role` IN (1, 2)";
                                         $query_run = mysqli_query($conn, $query);
@@ -313,8 +313,8 @@ include('../../models/connection.php')
                                     </tbody>
                                 </table>
                             </div>
-                            <a class = "btn btn-success" style="margin-right:20px;" href="./collector.php">Điều tiết công việc cho Collector</a>
-                    <a class = "btn btn-success" href="./janitor.php">Điều tiết công việc cho Janitor</a>
+                            <a class="btn btn-success" style="margin-right:20px;" href="./collector.php">Điều tiết công việc cho Collector</a>
+                            <a class="btn btn-success" href="./janitor.php">Điều tiết công việc cho Janitor</a>
 
                         </div>
                     </div>
@@ -346,7 +346,7 @@ include('../../models/connection.php')
         <!-- Core plugin JavaScript-->
         <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src = "../../js/emp.js"></script>
+        <script src="../../js/emp.js"></script>
 
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>

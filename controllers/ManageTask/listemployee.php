@@ -2,6 +2,7 @@
 $week = $_POST["week_id"];
 $resultjanitors = '';
 $resultcollectors = '';
+$role = $_COOKIE["user_role"];
 include("../../models/connection.php");
 
 $setstatus = "UPDATE `users` SET `status` = '1'";
@@ -14,10 +15,12 @@ if ($result->num_rows > 0) {
     // Load dữ liệu lên website
     while ($row = $result->fetch_assoc()) {
         $resultjanitors .= '<div class="col dropdown2"> <div class = "text-xs font-weight-bold info" id="' . $row["id"] . 'BTNV">' .
-            'Mã số: ' . $row["id"] . ' - ' . $row["name"] .
-            '<button class="btn btn-danger btn-del" name="submit" id="' . $row["id"] . 'BTD" style="font-size:1.1rem ;float:right; margin-left:1%; width:6.5rem; height:2.5rem;"> Xóa </button> ' .
-            '<a class="btn btn-success" name="submit" id="' . $row["id"] . 'BTF" href="../../app/views/emp.php" style="font-size:1.1rem; float:right; width:6.5rem; height:2.5rem;"> Chỉnh sửa </a> ' .
-            '</div>';
+            'Mã số: ' . $row["id"] . ' - ' . $row["name"];
+        if ($role == '0') {
+            $resultjanitors .= '<button class="btn btn-danger btn-del" name="submit" id="' . $row["id"] . 'BTD" style="font-size:1.1rem ;float:right; margin-left:1%; width:6.5rem; height:2.5rem;"> Xóa </button> '
+                . '<a class="btn btn-success" name="submit" id="' . $row["id"] . 'BTF" href="../../app/views/emp.php" style="font-size:1.1rem; float:right; width:6.5rem; height:2.5rem;"> Chỉnh sửa </a> ' .
+                '</div>';
+        };
         $sql2 = 'SELECT * FROM ((
                     (`task_for_janitors` JOIN `users` ON `users`.id = `task_for_janitors`.`user_id`) 
                 JOIN `shift` ON `shift`.id = shift_id) 
@@ -89,10 +92,12 @@ if ($result->num_rows > 0) {
     // Load dữ liệu lên website
     while ($row = $result->fetch_assoc()) {
         $resultcollectors .= '<div class="col dropdown2"> <div class = "text-xs font-weight-bold info" id="' . $row["id"] . 'BTNV">' .
-            'Mã số: ' . $row["id"] . ' - ' . $row["name"] .
-            '<button class="btn btn-danger btn-del" name="submit" id="' . $row["id"] . 'BTD" style="font-size:1.1rem ;float:right; margin-left:1%; width:6.5rem; height:2.5rem;"> Xóa </button> ' .
-            '<a class="btn btn-success" name="submit" id="' . $row["id"] . 'BTF" href="../../app/views/emp.php" style="font-size:1.1rem; float:right; width:6.5rem; height:2.5rem;"> Chỉnh sửa </a> ' .
-            '</div>';
+            'Mã số: ' . $row["id"] . ' - ' . $row["name"];
+        if ($role == '0') {
+            $resultcollectors .= '<button class="btn btn-danger btn-del" name="submit" id="' . $row["id"] . 'BTD" style="font-size:1.1rem ;float:right; margin-left:1%; width:6.5rem; height:2.5rem;"> Xóa </button> '
+                . '<a class="btn btn-success" name="submit" id="' . $row["id"] . 'BTF" href="../../app/views/emp.php" style="font-size:1.1rem; float:right; width:6.5rem; height:2.5rem;"> Chỉnh sửa </a> ' .
+                '</div>';
+        };
         $sql2 = 'SELECT * FROM ((
                 (`task_for_collectors` JOIN `users` ON `users`.id = `task_for_collectors`.`user_id`) 
             JOIN `shift` ON `shift`.id = shift_id) 

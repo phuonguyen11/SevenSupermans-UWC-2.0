@@ -25,7 +25,7 @@
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-dark accordion bg-mvc" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center bg-brand" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center bg-brand" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fa fa-leaf"></i>
                 </div>
@@ -37,7 +37,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="./index.html">
+                <a class="nav-link" href="./index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span class="fs-6" style="font-size: 1rem;">Dashboard</span></a>
             </li>
@@ -218,7 +218,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Tên người dùng</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_COOKIE["user_name"]; ?></span>
                                 <img class="img-profile rounded-circle" src="../../img/undraw_profile.svg" />
                             </a>
                             <!-- Dropdown - User Information -->
