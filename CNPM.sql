@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4deb2+deb11u1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 14, 2022 at 12:17 AM
--- Server version: 10.5.15-MariaDB-0+deb11u1
--- PHP Version: 7.4.33
+-- Host: 127.0.0.1
+-- Generation Time: Dec 15, 2022 at 12:32 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `soft_dev`
+-- Database: `cnpm`
 --
 
 -- --------------------------------------------------------
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `area` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL
+  `area_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `area`
 --
 
-INSERT INTO `area` (`id`, `name`) VALUES
+INSERT INTO `area` (`id`, `area_name`) VALUES
 (1, 'Khu vực 1 - Quận 1'),
 (2, 'Khu vực 2 - Quận 1'),
 (3, 'Khu vực 3 - Quận 1'),
@@ -112,13 +112,13 @@ CREATE TABLE `shift` (
 --
 
 INSERT INTO `shift` (`id`, `time`) VALUES
-(1, '6:00 - 8:00'),
-(2, '8:00 - 10:00'),
-(3, '10:00 - 12:00'),
-(4, '12:00 - 14:00'),
-(5, '14:00 - 16:00'),
-(6, '16:00 - 18:00'),
-(7, '18:00 - 20:00');
+(1, '6:00 - 12:00'),
+(2, '8:00 - 14:00'),
+(3, '10:00 - 16:00'),
+(4, '12:00 - 18:00'),
+(5, '14:00 - 20:00'),
+(6, '13:00 - 19:00'),
+(7, '15:00 - 19:00');
 
 -- --------------------------------------------------------
 
@@ -131,17 +131,33 @@ CREATE TABLE `task_for_collectors` (
   `user_id` int(11) NOT NULL,
   `shift_id` int(11) NOT NULL,
   `vehicles_id` int(11) NOT NULL,
-  `gmcps_id` int(11) NOT NULL
+  `gmcps_id` int(11) NOT NULL,
+  `week_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `task_for_collectors`
 --
 
-INSERT INTO `task_for_collectors` (`id`, `user_id`, `shift_id`, `vehicles_id`, `gmcps_id`) VALUES
-(1, 6, 3, 2, 1),
-(2, 7, 5, 4, 4),
-(3, 8, 7, 5, 5);
+INSERT INTO `task_for_collectors` (`id`, `user_id`, `shift_id`, `vehicles_id`, `gmcps_id`, `week_id`) VALUES
+(1, 6, 1, 1, 1, 1),
+(2, 6, 1, 2, 3, 1),
+(3, 6, 1, 1, 2, 1),
+(4, 6, 4, 3, 5, 1),
+(5, 6, 2, 3, 4, 1),
+(6, 7, 1, 2, 1, 1),
+(7, 7, 1, 5, 3, 1),
+(8, 7, 6, 4, 2, 1),
+(9, 7, 1, 2, 4, 1),
+(10, 7, 2, 3, 4, 1),
+(11, 8, 3, 4, 2, 1),
+(12, 11, 5, 4, 3, 1),
+(13, 12, 1, 1, 1, 1),
+(14, 6, 1, 1, 1, 2),
+(15, 7, 2, 2, 2, 2),
+(16, 8, 2, 5, 4, 2),
+(17, 11, 3, 3, 3, 2),
+(18, 12, 1, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -153,20 +169,40 @@ CREATE TABLE `task_for_janitors` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `shift_id` int(11) NOT NULL,
-  `area_id` int(11) NOT NULL
+  `area_id` int(11) NOT NULL,
+  `week_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `task_for_janitors`
 --
 
-INSERT INTO `task_for_janitors` (`id`, `user_id`, `shift_id`, `area_id`) VALUES
-(1, 3, 1, 1),
-(2, 3, 4, 3),
-(3, 4, 2, 2),
-(4, 4, 3, 4),
-(5, 5, 5, 5),
-(6, 5, 7, 6);
+INSERT INTO `task_for_janitors` (`id`, `user_id`, `shift_id`, `area_id`, `week_id`) VALUES
+(1, 3, 1, 2, 1),
+(2, 3, 2, 5, 1),
+(3, 4, 2, 2, 1),
+(4, 4, 3, 4, 1),
+(5, 5, 1, 1, 1),
+(6, 5, 2, 3, 1),
+(7, 5, 2, 2, 1),
+(8, 5, 3, 5, 1),
+(9, 3, 1, 5, 1),
+(10, 3, 5, 2, 1),
+(12, 2, 2, 2, 3),
+(13, 1, 2, 3, 3),
+(14, 3, 1, 1, 2),
+(15, 3, 1, 2, 3),
+(16, 3, 2, 4, 1),
+(17, 4, 3, 6, 1),
+(18, 4, 3, 2, 1),
+(19, 4, 2, 5, 1),
+(20, 4, 1, 2, 2),
+(21, 5, 3, 4, 2),
+(22, 9, 2, 3, 1),
+(23, 10, 4, 3, 1),
+(24, 9, 3, 4, 2),
+(25, 10, 5, 4, 2),
+(27, 5, 5, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -182,22 +218,27 @@ CREATE TABLE `users` (
   `sex` varchar(2) NOT NULL,
   `phone` varchar(11) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `name`, `sex`, `phone`, `address`, `role`) VALUES
-(1, 'admin', '123456', 'Back Officer 1', 'M', '09xxxxxxxx', 'KTX khu A', 0),
-(2, 'admin2', '123456', 'Back Officer 2', 'M', '09xxxxxxxx', 'KTX khu B', 0),
-(3, 'kietne', '123456', 'Huynh Tuan Kiet', 'M', '09xxxxxxxx', 'KTX khu B', 1),
-(4, 'hungne', '123456', 'Ly Thanh Hung', 'M', '09xxxxxxxx', 'KTX khu A', 1),
-(5, 'kiethuynh', '123456', 'Huynh Tuan Kiet', 'M', '0964643875', 'KTX khu A', 1),
-(6, 'bune', '123456', 'Bu', 'F', '09xxxxxxxx', 'KTX khu A', 2),
-(7, 'bune2', '123456', 'Bu', 'F', '09xxxxxxxx', 'KTX khu B', 2),
-(8, 'hungne2', '123456', 'Ly Thanh Hung', 'M', '09xxxxxxxx', 'KTX khu B', 2);
+INSERT INTO `users` (`id`, `username`, `password`, `name`, `sex`, `phone`, `address`, `role`, `status`) VALUES
+(1, 'admin', '123456', 'Back Officer 1', 'M', '09xxxxxxxx', 'KTX khu A', 0, 1),
+(2, 'admin2', '123456', 'Back Officer 2', 'M', '09xxxxxxxx', 'KTX khu B', 0, 1),
+(3, 'kietne', '123456', 'Huỳnh Tuấn Kiệt', 'M', '09xxxxxxxx', 'KTX khu B', 1, 1),
+(4, 'hungne', '123456', 'Trần Gia Yến Nhi', 'F', '09xxxxxxxx', 'KTX khu A', 1, 1),
+(5, 'kiethuynh', '123456', 'Nguyễn Tấn Lộc', 'M', '0964643875', 'KTX khu A', 1, 1),
+(6, 'bune', '123456', 'Lê Văn Bu', 'F', '09xxxxxxxx', 'KTX khu A', 2, 1),
+(7, 'bune2', '123456', 'Hứa Tung Tín', 'M', '09xxxxxxxx', 'KTX khu B', 2, 1),
+(8, 'hungne2', '123456', 'Lê Quốc Lợi', 'M', '09xxxxxxxx', 'KTX khu B', 2, 1),
+(9, 'dengiocom', '123456', 'Lê Tuấn Kiệt', 'M', '09xxxxxxxx', 'KTX khu B', 1, 1),
+(10, 'doibungqua', '123456', 'Dương Quá', 'M', '09xxxxxxxx', 'KTX khu B', 1, 1),
+(11, 'naoduocan', '123456', 'Tiểu Nong Nữ', 'F', '09xxxxxxxx', 'KTX khu B', 2, 1),
+(12, 'angiday', '123456', 'Trương Zô Kỵ', 'M', '09xxxxxxxx', 'KTX khu A', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -242,8 +283,9 @@ CREATE TABLE `week` (
 --
 
 INSERT INTO `week` (`week_id`, `creator`, `date`) VALUES
-(1, 'Back Officer 1', '2022-12-04'),
-(2, 'Back Officer 2', '2022-12-11');
+(1, 'Back Officer 1', '2022-11-06'),
+(2, 'Back Officer 2', '2022-12-13'),
+(3, 'Back Officer 1', '2022-11-20');
 
 --
 -- Indexes for dumped tables
@@ -335,19 +377,19 @@ ALTER TABLE `shift`
 -- AUTO_INCREMENT for table `task_for_collectors`
 --
 ALTER TABLE `task_for_collectors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `task_for_janitors`
 --
 ALTER TABLE `task_for_janitors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `vehicles`
@@ -359,9 +401,10 @@ ALTER TABLE `vehicles`
 -- AUTO_INCREMENT for table `week`
 --
 ALTER TABLE `week`
-  MODIFY `week_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `week_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
