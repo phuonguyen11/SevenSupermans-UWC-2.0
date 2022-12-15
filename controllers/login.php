@@ -16,4 +16,6 @@ if ($result->num_rows > 0) {
         header('location:../app/views/index.php');
     }
 }
+else header('location:../app/views/login.php');
+
 ?>
