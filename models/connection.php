@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "bucsehcmut2002";
+$password = "";
 $database = "cnpm";
 
 // Create connection

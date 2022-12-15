@@ -488,7 +488,7 @@
                                     }
                                 }).done(function() {
                                     console.log('DELETED - DONE!');
-                                    alert("DONE");
+                                    alert("DONE!");
                                     location.reload();
                                 });
                             };
@@ -502,7 +502,7 @@
         //nếu click ra ngoài các button thì ẩn tất cả các menu con
         window.addEventListener("click", function() {
             if (!event.target.matches(".info")) {
-                for (var i = 0; i < contents.length; i++) {
+                for (var i = 0; i < contents2.length; i++) {
                     contents2[i].classList.remove("show");
                 }
             }
