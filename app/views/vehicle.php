@@ -52,7 +52,7 @@
 
                 <!-- Nav Item - Task -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
+                    <a class="nav-link" href="./managetask.php">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Task</span></a>
                 </li>
@@ -62,7 +62,7 @@
 
                 <!-- Nav Item - Employees -->
                 <li class="nav-item">
-                    <a class="nav-link" href="emp.php">
+                    <a class="nav-link" href="./emp.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Employees</span></a>
                 </li>
