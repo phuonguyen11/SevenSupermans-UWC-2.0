@@ -12,9 +12,9 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 // change this for you local testing env
 $db_addr = "localhost";
-$db_user = "ntpt";
-$db_password = "ntpt";
-$db_db = "soft_dev";
+$db_user = "root";
+$db_password = "bucsehcmut2002";
+$db_db = "cnpm";
 
 class QueryRequest
 {
