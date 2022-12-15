@@ -11,7 +11,7 @@ var $currently_chosen_vehicle = null;
 var todo = null;
 var query_result = null;
 
-var query_addr = "http://localhost:8020/SevenSupermans-UWC-2.0/controllers/query_db.php";
+var query_addr = "/controllers/query_db.php";
 var sql_query = "select * from vehicles";
 
 function query_db(queryString, url, successCallBack, failCallBack)
