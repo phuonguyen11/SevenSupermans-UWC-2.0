@@ -5,7 +5,7 @@
 3. Sửa/chạy file ./CNPM.sql để tạo database và (các) bảng cần thiết
 4. Sửa file models/connection.php, với các biến để trỏ về database vừa tạo
 5. Setup apache root trỏ tới thư mục project vừa clone
-6. Truy cập http://localhost:/app/views/
+6. Truy cập http://localhost:8080/app/views/
 # Database
  Trong file SQL: \
 -- bảng Users -- \
