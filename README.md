@@ -8,3 +8,5 @@ Role 2 là Collector \
 Status -1 là xe cần phải được bảo trì (không thể hoạt động được)\ 
 Status 0 là xe chưa đc phân công (xe trống) \
 Status 1 là xe đã được phân công
+
+Nhánh chính là nhánh Nguyen, các nhánh còn lại là các feature của project.
