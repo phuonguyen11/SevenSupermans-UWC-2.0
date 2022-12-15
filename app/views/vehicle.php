@@ -62,7 +62,7 @@
 
                 <!-- Nav Item - Employees -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
+                    <a class="nav-link" href="emp.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Employees</span></a>
                 </li>
@@ -72,7 +72,7 @@
 
                 <!-- Nav Item - Vehicles -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="vehicle.html">
+                    <a class="nav-link" href="vehicle.php">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Vehicles</span></a>
                 </li>
@@ -279,7 +279,7 @@
                                     <a class="nav-link active text-bg-success" data-bs-toggle="tab" href="#truck-tab">Truck</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link disabled" style="background-color=#D0CBCB"data-bs-toggle="tab" href="#trolley-tab">Trolley</a>
+                                    <a class="nav-link disabled" style="background-color:#D0CBCB"data-bs-toggle="tab" href="#trolley-tab">Trolley</a>
                                 </li>
                             </ul>
                         </div>
@@ -357,7 +357,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright © Your Website 2022</span>
+                            <span>Copyright © UWC 2.0</span>
                         </div>
                     </div>
                 </footer>
