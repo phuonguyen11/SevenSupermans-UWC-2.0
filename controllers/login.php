@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         setcookie("user_name", $row["name"], time() + (86400 * 30), "/");
         setcookie("user_role", $row["role"], time() + (86400 * 30), "/");
-        header('location:../app/views/index.html');
+        header('location:../app/views/index.php');
     }
 }
 ?>
