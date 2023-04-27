@@ -16,6 +16,5 @@ Role 2 là Collector \
 Status -1 là xe cần phải được bảo trì (không thể hoạt động được)  \
 Status 0 là xe chưa đc phân công (xe trống)  \
 Status 1 là xe đã được phân công 
-# Note
-Nhánh chính được đặt tên là Nguyen.
-
+# Document
+[SevenSupermans_report_task5.pdf](https://github.com/phuonguyen11/SevenSupermans-UWC-2.0/files/11343604/SevenSupermans_report_task5.pdf)
